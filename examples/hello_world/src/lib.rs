@@ -13,6 +13,20 @@ pub fn my_function(input: Vec2) -> Vec2 {
     input
 }
 
+#[ffi(service)]
+pub struct ServiceBasic {}
+
+#[ffi]
+impl ServiceBasic {
+    pub fn create() -> ffi::Result<Self, interoptopus::Error> {
+        ffi::Ok(Self {})
+    }
+
+    pub fn create_always() -> Self {
+        Self {}
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use interoptopus::function;
